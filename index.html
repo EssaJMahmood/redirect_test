@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect to Chrome</title>
+    <script>
+        function isFacebookWebView() {
+            var ua = navigator.userAgent || navigator.vendor || window.opera;
+            return (ua.indexOf("FBAN") > -1) || (ua.indexOf("FBAV") > -1);
+        }
+
+        function redirectToChrome() {
+            if (isFacebookWebView() && navigator.userAgent.toLowerCase().indexOf('android') > -1) {
+                // Redirect to Chrome using intent URL
+                window.location.href = 'intent://sanfur.page.link/Z8VL#Intent;scheme=https;package=com.android.chrome;end';
+            } else {
+                // Fallback URL if not in Facebook WebView
+                window.location.href = 'https://sanfur.page.link/Z8VL';
+            }
+        }
+    </script>
+</head>
+<body onload="redirectToChrome()">
+    <p>If you are not redirected, <a href="https://sanfur.page.link/Z8VL">click here</a>.</p>
+</body>
+</html>
